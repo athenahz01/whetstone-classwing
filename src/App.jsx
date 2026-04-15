@@ -6,16 +6,39 @@ import { BrowserRouter, Routes, Route, useNavigate, useParams, Link as RouterLin
 // Cal.com: Replace with your Cal.com scheduling link
 const CAL_URL = "https://cal.com/cole-whetstone-oppwb1/30min";
 
-// Stripe: Create a Payment Link in Stripe Dashboard for each session, paste URLs here.
-// Key = session id, Value = Stripe Payment Link URL
-// Example: https://buy.stripe.com/test_abc123
+// Stripe Payment Links — mapped by session ID for individual enrollment
+// All beginner sessions for a language share the same payment link
 const STRIPE_LINKS = {
-  // Greek
-  g101a: "", g101b: "", g102a: "", g201a: "", g301a: "",
-  // Latin
-  l101a: "", l101b: "", l101c: "", l102a: "", l201a: "", l301a: "",
-  // Hebrew
-  h101a: "", h101b: "", h102a: "", h201a: "",
+  // Greek sessions → Individual Greek link
+  g101a: "https://buy.stripe.com/8x27sMgCT9g7gRg5bt2ZO00",
+  g101b: "https://buy.stripe.com/8x27sMgCT9g7gRg5bt2ZO00",
+  g102a: "https://buy.stripe.com/8x27sMgCT9g7gRg5bt2ZO00",
+  g201a: "https://buy.stripe.com/8x27sMgCT9g7gRg5bt2ZO00",
+  g301a: "https://buy.stripe.com/8x27sMgCT9g7gRg5bt2ZO00",
+  // Latin sessions → Individual Latin link
+  l101a: "https://buy.stripe.com/cNi14o9arakb44u0Vd2ZO01",
+  l101b: "https://buy.stripe.com/cNi14o9arakb44u0Vd2ZO01",
+  l101c: "https://buy.stripe.com/cNi14o9arakb44u0Vd2ZO01",
+  l102a: "https://buy.stripe.com/cNi14o9arakb44u0Vd2ZO01",
+  l201a: "https://buy.stripe.com/cNi14o9arakb44u0Vd2ZO01",
+  l301a: "https://buy.stripe.com/cNi14o9arakb44u0Vd2ZO01",
+  // Hebrew sessions → Individual Hebrew link
+  h101a: "https://buy.stripe.com/4gMaEY5YffEv0Si47p2ZO02",
+  h101b: "https://buy.stripe.com/4gMaEY5YffEv0Si47p2ZO02",
+  h102a: "https://buy.stripe.com/4gMaEY5YffEv0Si47p2ZO02",
+  h201a: "https://buy.stripe.com/4gMaEY5YffEv0Si47p2ZO02",
+};
+
+// Additional product links (for groups, tutorials, etc.)
+const STRIPE_PRODUCTS = {
+  churchGroupGreek: "https://buy.stripe.com/14A5kEgCT0JB44ubzR2ZO03",
+  churchGroupLatin: "https://buy.stripe.com/5kQeVedqH4ZR58ygUb2ZO04",
+  churchGroupHebrew: "https://buy.stripe.com/eVq9AUfyP1NF9oO0Vd2ZO05",
+  sponsorSeat: "https://buy.stripe.com/14AbJ2dqHdwn0Si1Zh2ZO06",
+  churchPartnership: "https://buy.stripe.com/8x23cwdqH3VN6cC7jB2ZO07",
+  foundingPartner: "https://buy.stripe.com/bJe6oIgCT63V6cCavN2ZO08",
+  tutorialIndividual: "https://buy.stripe.com/8x2fZi5YfdwncB0eM32ZO09",
+  tutorialPaired: "https://buy.stripe.com/9B600kfyP8c38kK0Vd2ZO0a",
 };
 
 const getStripeLink = (sessionId) => STRIPE_LINKS[sessionId] || "";
@@ -907,7 +930,10 @@ function TutorialsPage({ navigate }) {
         {["Choose your language: Ancient Greek, Latin, or Biblical Hebrew.","We match you with an instructor based on your goals.","Set your schedule — weekly, biweekly, or intensive blocks.","Curriculum tailored: exam prep, specific texts, composition, or group syllabus at your pace.","Sessions are 1 hour via Zoom. Most book 10- or 14-session packages."].map((t,i) => (
           <p key={i} style={{ fontSize: 15, color: "var(--ink-light)", lineHeight: 1.8, marginBottom: 12, paddingLeft: 20, borderLeft: "2px solid var(--border)" }}>{t}</p>
         ))}
-        <div style={{ textAlign: "center", marginTop: 48 }}><Btn onClick={() => navigate("contact")}>Inquire About Tutorials</Btn></div>
+        <div style={{ textAlign: "center", marginTop: 48, display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
+          <Btn onClick={() => window.open(STRIPE_PRODUCTS.tutorialIndividual, "_blank")}>Book Individual Tutorial →</Btn>
+          <Btn variant="outline" onClick={() => window.open(STRIPE_PRODUCTS.tutorialPaired, "_blank")}>Book Paired Tutorial →</Btn>
+        </div>
       </section>
     </div>
   );
