@@ -1060,7 +1060,10 @@ function GroupsPage({ navigate }) {
                   ))}
                   <p style={{ fontSize: 12, color: "var(--ink-faint)", fontStyle: "italic", marginTop: 16, lineHeight: 1.5 }}>{pkg.note}</p>
                   <button
-                    onClick={() => setShowForm(true)}
+                    onClick={() => {
+                      const el = document.getElementById("group-inquiry");
+                      if (el) el.scrollIntoView({ behavior: "smooth" });
+                    }}
                     style={{
                       width: "100%", marginTop: 20, padding: "12px 0", borderRadius: 3, border: "none", cursor: "pointer",
                       fontFamily: "var(--sans)", fontSize: 14, fontWeight: 600,
