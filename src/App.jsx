@@ -982,7 +982,7 @@ function GroupsPage({ navigate }) {
               { n: "1", t: "You reach out", d: "Tell us about your group — size, language interest, and preferred schedule." },
               { n: "2", t: "Free demo session", d: "We run a 45-minute sample class so your group can experience the method." },
               { n: "3", t: "We build your cohort", d: "Choose a language track. We assign an instructor and set the schedule." },
-              { n: "4", t: "Your group reads Scripture", d: "10 weeks of live immersive classes. Materials and support included." },
+              { n: "4", t: "Your group reads Scripture", d: "12 weeks of live immersive classes. Materials and support included." },
             ].map((step, i) => (
               <div key={i} style={{ display: "flex", gap: 16, marginBottom: i < 3 ? 20 : 0 }}>
                 <div style={{ width: 28, height: 28, borderRadius: "50%", background: "var(--ink)", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, fontFamily: "var(--mono)", fontSize: 12, fontWeight: 600 }}>{step.n}</div>
@@ -1092,7 +1092,7 @@ function GroupsPage({ navigate }) {
             { t: "Flexible Scheduling", d: "You pick the day and time that works for your group. Evenings, weekends, or weekday mornings." },
             { t: "Flexible Billing", d: "We can invoice your organization directly, or collect from individual students — whichever is easier." },
             { t: "Progress Reports", d: "Group leaders receive end-of-term reports on attendance, engagement, and reading progress." },
-            { t: "Continuation Path", d: "After 10 weeks, groups can continue to the next level at the same group rate. Multi-term discounts available." },
+            { t: "Continuation Path", d: "After 12 weeks, groups can continue to the next level at the same group rate. Multi-term discounts available." },
             { t: "4-Week Guarantee", d: "If the group isn't making real progress after 4 weeks, we'll teach the next 4 weeks free." },
             { t: "Dedicated Support", d: "A single point of contact for the group leader — scheduling, enrollment, questions, all handled." },
           ].map((item, i) => (
