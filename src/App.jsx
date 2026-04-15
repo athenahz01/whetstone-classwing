@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef } from "react";
+import { BrowserRouter, Routes, Route, useNavigate, useParams, Link as RouterLink } from "react-router-dom";
 
 /* ═══════════ CONFIG — UPDATE THESE ═══════════ */
 
 // Cal.com: Replace with your Cal.com scheduling link
-const CAL_URL = "https://cal.com/YOUR_USERNAME/placement-call";
+const CAL_URL = "https://cal.com/cole-whetstone-oppwb1/30min";
 
 // Stripe: Create a Payment Link in Stripe Dashboard for each session, paste URLs here.
 // Key = session id, Value = Stripe Payment Link URL
@@ -35,6 +36,36 @@ body { font-family: var(--sans); background: var(--bg); color: var(--ink); -webk
 @keyframes rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 input:focus, textarea:focus, select:focus { border-color: var(--ink) !important; outline: none; }
+
+/* ═══════════ RESPONSIVE ═══════════ */
+@media (max-width: 768px) {
+  .desktop-nav-links { display: none !important; }
+  .mobile-menu-btn { display: flex !important; }
+  section { padding-left: 20px !important; padding-right: 20px !important; }
+}
+@media (min-width: 769px) {
+  .mobile-menu-btn { display: none !important; }
+  .mobile-menu-overlay { display: none !important; }
+}
+.mobile-menu-btn {
+  display: none; cursor: pointer; background: none; border: none;
+  flex-direction: column; gap: 5px; padding: 4px;
+}
+.mobile-menu-btn span {
+  display: block; width: 22px; height: 2px; background: var(--ink); border-radius: 1px; transition: all 0.3s;
+}
+.mobile-menu-overlay {
+  position: fixed; inset: 0; z-index: 99; background: rgba(250,247,242,0.98);
+  backdrop-filter: blur(20px); display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 28px; animation: fadeIn 0.25s ease;
+}
+/* Responsive grids */
+@media (max-width: 900px) {
+  .grid-3 { grid-template-columns: 1fr !important; }
+  .grid-2 { grid-template-columns: 1fr !important; }
+  .grid-2-1 { grid-template-columns: 1fr !important; }
+  .hero-content { padding-bottom: 60px !important; }
+}
 `;
 
 /* ═══════════ DATA ═══════════ */
@@ -331,18 +362,33 @@ function ManuscriptBanner({ lang = "greek" }) {
 /* ═══════════ UI COMPONENTS ═══════════ */
 
 function Nav({ page, navigate }) {
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const navLinks = [["Courses","courses"],["Method","method"],["Groups","groups"],["Tutorials","tutorials"],["Contact","contact"]];
   return (
+    <>
     <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, background: "rgba(250,247,242,0.92)", backdropFilter: "blur(16px)", borderBottom: "1px solid var(--border)" }}>
-      <div style={{ maxWidth: 1120, margin: "0 auto", padding: "0 40px", display: "flex", alignItems: "center", justifyContent: "space-between", height: 64 }}>
-        <span onClick={() => navigate("home")} style={{ cursor: "pointer", fontFamily: "var(--serif)", fontSize: 20, fontWeight: 600, letterSpacing: "0.04em" }}>Whetstone</span>
-        <div style={{ display: "flex", gap: 28, alignItems: "center" }}>
-          {[["Courses","courses"],["Method","method"],["Groups","groups"],["Tutorials","tutorials"],["Contact","contact"]].map(([l,t]) => (
+      <div style={{ maxWidth: 1120, margin: "0 auto", padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between", height: 64 }}>
+        <span onClick={() => { navigate("home"); setMobileOpen(false); }} style={{ cursor: "pointer", fontFamily: "var(--serif)", fontSize: 20, fontWeight: 600, letterSpacing: "0.04em" }}>Whetstone</span>
+        <div className="desktop-nav-links" style={{ display: "flex", gap: 28, alignItems: "center" }}>
+          {navLinks.map(([l,t]) => (
             <span key={t} onClick={() => navigate(t)} style={{ cursor: "pointer", fontSize: 13, fontWeight: page === t ? 600 : 500, color: page === t ? "var(--ink)" : "var(--ink-muted)", letterSpacing: "0.04em", borderBottom: page === t ? "2px solid var(--accent)" : "2px solid transparent", paddingBottom: 2 }}>{l}</span>
           ))}
           <span onClick={() => navigate("schedule")} style={{ cursor: "pointer", fontSize: 13, fontWeight: 600, color: "#fff", background: "var(--ink)", padding: "9px 22px", borderRadius: 3 }}>Enroll</span>
         </div>
+        <button className="mobile-menu-btn" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Menu">
+          <span /><span /><span />
+        </button>
       </div>
     </nav>
+    {mobileOpen && (
+      <div className="mobile-menu-overlay" onClick={() => setMobileOpen(false)}>
+        {navLinks.map(([l,t]) => (
+          <span key={t} onClick={() => { navigate(t); setMobileOpen(false); }} style={{ cursor: "pointer", fontSize: 20, fontFamily: "var(--serif)", fontWeight: page === t ? 600 : 400, color: page === t ? "var(--accent)" : "var(--ink)" }}>{l}</span>
+        ))}
+        <span onClick={() => { navigate("schedule"); setMobileOpen(false); }} style={{ cursor: "pointer", fontSize: 15, fontWeight: 600, color: "#fff", background: "var(--ink)", padding: "12px 32px", borderRadius: 3, marginTop: 8 }}>Enroll</span>
+      </div>
+    )}
+    </>
   );
 }
 
@@ -1099,7 +1145,13 @@ function GroupsPage({ navigate }) {
           <label style={{ display: "block", fontSize: 13, fontWeight: 500, color: "var(--ink-muted)", marginBottom: 6 }}>Anything else? (optional)</label>
           <textarea rows={4} placeholder="Tell us about your group, goals, preferred schedule, etc." value={form.message} onChange={e => setForm({...form, message: e.target.value})} style={{...inputStyle, resize: "vertical"}} />
         </div>
-        <Btn onClick={() => setSent(true)} style={{ width: "100%", padding: "14px" }}>Submit Inquiry</Btn>
+        <Btn onClick={async () => {
+            try {
+              const r = await fetch("/api/contact", { method: "POST", headers: {"Content-Type":"application/json"}, body: JSON.stringify({...form, type: "group_inquiry"}) });
+              if (!r.ok) console.warn("Form endpoint not configured yet");
+            } catch(e) { console.warn("Form endpoint not configured:", e); }
+            setSent(true);
+          }} style={{ width: "100%", padding: "14px" }}>Submit Inquiry</Btn>
         <p style={{ fontSize: 12, color: "var(--ink-faint)", textAlign: "center", marginTop: 12 }}>We'll respond within one business day. No commitment required.</p>
       </section>
 
@@ -1212,9 +1264,18 @@ function ContactPage({ navigate }) {
         {/* Message Form */}
         {!sent ? <>
           <h3 style={{ fontSize: 16, fontWeight: 600, marginBottom: 20 }}>Send a message</h3>
-          {[{l:"Name",t:"text"},{l:"Email",t:"email"}].map(f => <div key={f.l} style={{ marginBottom: 16 }}><label style={{ display: "block", fontSize: 13, fontWeight: 500, color: "var(--ink-muted)", marginBottom: 6 }}>{f.l}</label><input type={f.t} style={inputStyle} /></div>)}
-          <div style={{ marginBottom: 20 }}><label style={{ display: "block", fontSize: 13, fontWeight: 500, color: "var(--ink-muted)", marginBottom: 6 }}>Message</label><textarea rows={5} style={{...inputStyle,resize:"vertical"}} /></div>
-          <Btn onClick={() => setSent(true)} style={{ width: "100%", padding: "14px" }}>Send</Btn>
+          <div id="contact-form">{[{l:"Name",t:"text",n:"name"},{l:"Email",t:"email",n:"email"}].map(f => <div key={f.l} style={{ marginBottom: 16 }}><label style={{ display: "block", fontSize: 13, fontWeight: 500, color: "var(--ink-muted)", marginBottom: 6 }}>{f.l}</label><input type={f.t} name={f.n} style={inputStyle} /></div>)}
+          <div style={{ marginBottom: 20 }}><label style={{ display: "block", fontSize: 13, fontWeight: 500, color: "var(--ink-muted)", marginBottom: 6 }}>Message</label><textarea name="message" rows={5} style={{...inputStyle,resize:"vertical"}} /></div></div>
+          <Btn onClick={async () => {
+            const formEl = document.querySelectorAll("#contact-form input, #contact-form textarea");
+            const data = {};
+            formEl.forEach(el => { if (el.name) data[el.name] = el.value; });
+            try {
+              const r = await fetch("/api/contact", { method: "POST", headers: {"Content-Type":"application/json"}, body: JSON.stringify(data) });
+              if (!r.ok) console.warn("Form endpoint not configured yet");
+            } catch(e) { console.warn("Form endpoint not configured:", e); }
+            setSent(true);
+          }} style={{ width: "100%", padding: "14px" }}>Send</Btn>
         </> : <div style={{ textAlign: "center", padding: "40px 0" }}>
           <div style={{ width: 56, height: 56, borderRadius: '50%', background: 'var(--ink)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px' }}><span style={{ color: '#fff', fontSize: 24, fontFamily: 'var(--serif)' }}>✓</span></div>
           <h3 style={{ fontFamily: "var(--serif)", fontSize: 24, fontWeight: 500, marginBottom: 12 }}>Sent</h3>
@@ -1226,22 +1287,61 @@ function ContactPage({ navigate }) {
   );
 }
 
+/* ═══════════ ROUTE WRAPPERS ═══════════ */
+function LangPageRoute({ navigate }) {
+  const { langId } = useParams();
+  return <LangPage langId={langId} navigate={navigate} />;
+}
+function CourseDetailRoute({ navigate }) {
+  const { langId, courseCode } = useParams();
+  return <CourseDetail langId={langId} courseCode={courseCode} navigate={navigate} />;
+}
+function EnrollPageRoute({ navigate }) {
+  const { langId, courseCode, sessionId } = useParams();
+  return <EnrollPage langId={langId} courseCode={courseCode} sessionId={sessionId} navigate={navigate} />;
+}
+
+function AppInner() {
+  const nav = useNavigate();
+  const navigate = (page, ...args) => {
+    let path = "/";
+    if (page === "home") path = "/";
+    else if (page === "lang") path = `/lang/${args[0]}`;
+    else if (page === "course") path = `/course/${args[0]}/${args[1]}`;
+    else if (page === "enroll") path = `/enroll/${args[0]}/${args[1]}/${args[2]}`;
+    else path = `/${page}`;
+    nav(path);
+    window.scrollTo({ top: 0, behavior: "instant" });
+  };
+  const loc = window.location.pathname;
+  const page = loc === "/" ? "home" : loc.split("/")[1];
+  return (
+    <>
+      <style>{CSS}</style>
+      <Nav page={page} navigate={navigate} />
+      <Routes>
+        <Route path="/" element={<HomePage navigate={navigate} />} />
+        <Route path="/courses" element={<CoursesPage navigate={navigate} />} />
+        <Route path="/lang/:langId" element={<LangPageRoute navigate={navigate} />} />
+        <Route path="/course/:langId/:courseCode" element={<CourseDetailRoute navigate={navigate} />} />
+        <Route path="/schedule" element={<SchedulePage navigate={navigate} />} />
+        <Route path="/method" element={<MethodPage navigate={navigate} />} />
+        <Route path="/tutorials" element={<TutorialsPage navigate={navigate} />} />
+        <Route path="/groups" element={<GroupsPage navigate={navigate} />} />
+        <Route path="/enroll/:langId/:courseCode/:sessionId" element={<EnrollPageRoute navigate={navigate} />} />
+        <Route path="/contact" element={<ContactPage navigate={navigate} />} />
+        <Route path="*" element={<HomePage navigate={navigate} />} />
+      </Routes>
+      <Footer navigate={navigate} />
+    </>
+  );
+}
+
 /* ═══════════ ROUTER ═══════════ */
 export default function App() {
-  const [route, setRoute] = useState({ page: "home" });
-  const navigate = (page, ...args) => { setRoute({ page, args }); window.scrollTo({ top: 0, behavior: "instant" }); };
-  const { page, args = [] } = route;
-  const pages = {
-    home: <HomePage navigate={navigate} />,
-    courses: <CoursesPage navigate={navigate} />,
-    lang: <LangPage langId={args[0]} navigate={navigate} />,
-    course: <CourseDetail langId={args[0]} courseCode={args[1]} navigate={navigate} />,
-    schedule: <SchedulePage navigate={navigate} />,
-    method: <MethodPage navigate={navigate} />,
-    tutorials: <TutorialsPage navigate={navigate} />,
-    groups: <GroupsPage navigate={navigate} />,
-    enroll: <EnrollPage langId={args[0]} courseCode={args[1]} sessionId={args[2]} navigate={navigate} />,
-    contact: <ContactPage navigate={navigate} />,
-  };
-  return (<><style>{CSS}</style><Nav page={page} navigate={navigate} />{pages[page]||pages.home}<Footer navigate={navigate} /></>);
+  return (
+    <BrowserRouter>
+      <AppInner />
+    </BrowserRouter>
+  );
 }
