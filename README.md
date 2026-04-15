@@ -111,4 +111,4 @@ To add a session, add an object to the relevant `sessions[]` array and add its I
 
 ## Contact
 
-cole@whetstoneadvisory.com · 917-562-5668
+cole@whetstoneadmissions.com · 919-599-4565

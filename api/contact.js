@@ -2,7 +2,7 @@
  * Vercel Serverless Function — Contact Form Handler
  * 
  * Receives form submissions from the contact form and group inquiry form.
- * Sends email notification to cole@whetstoneadvisory.com.
+ * Sends email notification to cole@whetstoneadmissions.com.
  * 
  * SETUP: Add RESEND_API_KEY to Vercel environment variables.
  * Get a free key at https://resend.com (100 emails/day free).
@@ -66,8 +66,8 @@ export default async function handler(req, res) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          from: "Whetstone Classics <noreply@whetstoneadvisory.com>",
-          to: ["cole@whetstoneadvisory.com"],
+          from: "Whetstone Classics <onboarding@resend.dev>",
+          to: ["cole@whetstoneadmissions.com"],
           subject,
           text: textBody,
           reply_to: email,

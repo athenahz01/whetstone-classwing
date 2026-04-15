@@ -81,16 +81,16 @@ const languages = [
         sessions: [
           { id: "g101a", dates: "Mar 10 – May 26", schedule: "Mon & Wed · 7–8:30 PM ET", spots: 3 },
           { id: "g101b", dates: "Jun 2 – Aug 18", schedule: "Tue & Thu · 6–7:30 PM ET", spots: 8 },
-        ], price: 895, duration: "14 weeks" },
+        ], price: 1495, duration: "12 weeks" },
       { code: "G102", name: "Beginner Greek II", detail: "Complete the grammar and begin reading adapted Xenophon and the New Testament.",
         longDesc: "Building on Greek I, complete your grammar survey — aorist, perfect, subjunctive, optative, participle systems. Increasingly complex adapted texts and lightly edited Xenophon. Conducted primarily in Greek.",
-        sessions: [{ id: "g102a", dates: "Mar 12 – May 28", schedule: "Tue & Thu · 7–8:30 PM ET", spots: 5 }], price: 895, duration: "14 weeks" },
+        sessions: [{ id: "g102a", dates: "Mar 12 – May 28", schedule: "Tue & Thu · 7–8:30 PM ET", spots: 5 }], price: 1495, duration: "12 weeks" },
       { code: "G201", name: "Intermediate Greek", detail: "Plato, Euripides & Xenophon with increasing independence.",
         longDesc: "Transition from adapted to authentic texts. Plato's Apology, Euripides' Medea, Xenophon's Memorabilia. Grammar integrated into reading. Discussion in Greek.",
-        sessions: [{ id: "g201a", dates: "Mar 10 – May 26", schedule: "Mon & Wed · 8–9:30 PM ET", spots: 6 }], price: 995, duration: "14 weeks" },
+        sessions: [{ id: "g201a", dates: "Mar 10 – May 26", schedule: "Mon & Wed · 8–9:30 PM ET", spots: 6 }], price: 1495, duration: "12 weeks" },
       { code: "G301", name: "Advanced Seminar", detail: "Homer, Aristotle, prose composition, and oral fluency.",
         longDesc: "The capstone. Homer's Iliad, Aristotle's Nicomachean Ethics, original prose composition. Conducted entirely in Greek.",
-        sessions: [{ id: "g301a", dates: "Mar 14 – May 30", schedule: "Fri · 12–1:30 PM ET", spots: 4 }], price: 895, duration: "14 weeks" },
+        sessions: [{ id: "g301a", dates: "Mar 14 – May 30", schedule: "Fri · 12–1:30 PM ET", spots: 4 }], price: 1495, duration: "12 weeks" },
     ],
   },
   {
@@ -105,16 +105,16 @@ const languages = [
           { id: "l101a", dates: "Mar 11 – May 27", schedule: "Tue & Thu · 7–8:30 PM ET", spots: 2 },
           { id: "l101b", dates: "Jun 3 – Aug 19", schedule: "Mon & Wed · 6–7:30 PM ET", spots: 8 },
           { id: "l101c", dates: "Jun 7 – Aug 23", schedule: "Sat · 10–11:30 AM ET", spots: 8 },
-        ], price: 895, duration: "14 weeks" },
+        ], price: 1495, duration: "12 weeks" },
       { code: "L102", name: "Beginner Latin II", detail: "Complete Familia Romana and transition to authentic prose.",
         longDesc: "Complete the Familia Romana. Full range of Latin grammar: perfect/pluperfect, subjunctive, indirect discourse, ablative absolutes. Ready for real authors.",
-        sessions: [{ id: "l102a", dates: "Mar 10 – May 26", schedule: "Mon & Wed · 7–8:30 PM ET", spots: 4 }], price: 895, duration: "14 weeks" },
+        sessions: [{ id: "l102a", dates: "Mar 10 – May 26", schedule: "Mon & Wed · 7–8:30 PM ET", spots: 4 }], price: 1495, duration: "12 weeks" },
       { code: "L201", name: "Intermediate Latin", detail: "Cicero, Virgil, and Horace — your first semester with the masters.",
         longDesc: "Cicero's orations, Virgil's Aeneid, Horace's Odes. Prose composition and Latin prose rhythm.",
-        sessions: [{ id: "l201a", dates: "Mar 12 – May 28", schedule: "Tue & Thu · 8–9:30 PM ET", spots: 7 }], price: 995, duration: "14 weeks" },
+        sessions: [{ id: "l201a", dates: "Mar 12 – May 28", schedule: "Tue & Thu · 8–9:30 PM ET", spots: 7 }], price: 1495, duration: "12 weeks" },
       { code: "L301", name: "Advanced Seminar", detail: "Prose composition, Tacitus, and Seneca's letters.",
         longDesc: "Tacitus' Agricola, Seneca's Epistulae Morales, Latin prose composition. Conducted entirely in Latin.",
-        sessions: [{ id: "l301a", dates: "Mar 13 – May 29", schedule: "Thu · 12–1:30 PM ET", spots: 5 }], price: 895, duration: "14 weeks" },
+        sessions: [{ id: "l301a", dates: "Mar 13 – May 29", schedule: "Thu · 12–1:30 PM ET", spots: 5 }], price: 1495, duration: "12 weeks" },
     ],
   },
   {
@@ -128,13 +128,13 @@ const languages = [
         sessions: [
           { id: "h101a", dates: "Mar 12 – May 28", schedule: "Tue & Thu · 6–7:30 PM ET", spots: 6 },
           { id: "h101b", dates: "Jun 4 – Aug 20", schedule: "Mon & Wed · 7–8:30 PM ET", spots: 8 },
-        ], price: 895, duration: "14 weeks" },
+        ], price: 1495, duration: "12 weeks" },
       { code: "H102", name: "Beginner Hebrew II", detail: "Expanding into narrative and poetic biblical texts.",
         longDesc: "Derived stems (Niphal, Piel, Hiphil, Hithpael), weak verbs, complex syntax. Ruth, Jonah, poetic Hebrew in the Psalms.",
-        sessions: [{ id: "h102a", dates: "Mar 10 – May 26", schedule: "Mon & Wed · 6–7:30 PM ET", spots: 7 }], price: 895, duration: "14 weeks" },
+        sessions: [{ id: "h102a", dates: "Mar 10 – May 26", schedule: "Mon & Wed · 6–7:30 PM ET", spots: 7 }], price: 1495, duration: "12 weeks" },
       { code: "H201", name: "Intermediate Hebrew", detail: "Prophets, Psalms, and Wisdom literature.",
         longDesc: "Isaiah, Psalms, Proverbs. Hebrew poetry, prophecy, wisdom genres. Rare forms and text-critical awareness.",
-        sessions: [{ id: "h201a", dates: "Mar 14 – May 30", schedule: "Fri · 11 AM–12:30 PM ET", spots: 8 }], price: 995, duration: "14 weeks" },
+        sessions: [{ id: "h201a", dates: "Mar 14 – May 30", schedule: "Fri · 11 AM–12:30 PM ET", spots: 8 }], price: 1495, duration: "12 weeks" },
     ],
   },
 ];
@@ -175,54 +175,57 @@ const groupTracks = [
 
 const groupPackages = [
   {
-    name: "Single Cohort",
-    size: "6–12 students",
-    perStudent: 595,
-    duration: "10 weeks",
-    sessions: "1× per week · 1.5 hrs",
+    name: "Church Group",
+    size: "6+ members",
+    perStudent: 995,
+    duration: "12 weeks",
+    sessions: "2× per week · 1.5 hrs",
     features: [
-      "One language track",
-      "Beginner level (no prerequisites)",
+      "Same 36-hour immersion program",
+      "33% off the individual rate",
       "All materials & digital workbook included",
-      "Free demo session for group leaders",
-      "Schedule set by your group",
-      "Weekly homework with feedback",
+      "Free demo session for the group",
+      "Cohort scheduled around your availability",
+      "Weekly progress reports to coordinator",
     ],
-    note: "Minimum 6 students to form a cohort",
+    note: "Minimum 6 members to form a cohort",
     popular: false,
   },
   {
-    name: "Full Group",
-    size: "13–20 students",
-    perStudent: 495,
-    duration: "10 weeks",
-    sessions: "1× per week · 1.5 hrs",
+    name: "Church Partnership",
+    size: "Up to 8 seats",
+    perStudent: null,
+    flatPrice: 8995,
+    duration: "12 weeks",
+    sessions: "2× per week · 1.5 hrs",
     features: [
-      "Split into two parallel sections",
-      "Same instructor, same curriculum",
-      "All materials & digital workbook included",
-      "Free demo session for whole group",
-      "Flexible scheduling (2 time slots)",
-      "Dedicated group coordinator",
+      "One invoice from your adult ed budget",
+      "Members attend at no personal cost",
+      "Priority scheduling — church picks time slot",
+      "Personalized welcome materials",
+      "End-of-term progress report for vestry",
+      "15-minute onboarding call per member",
+      "Dedicated coordinator contact",
     ],
-    note: "Best value — ideal for Bible study groups & parishes",
+    note: "Best value — one decision, one payment, 8 lives changed",
     popular: true,
   },
   {
-    name: "Ongoing Partnership",
-    size: "Any size",
+    name: "Founding Partner",
+    size: "Up to 8 seats · first 5 churches",
     perStudent: null,
-    duration: "Term by term",
-    sessions: "Custom",
+    flatPrice: 5995,
+    duration: "12 weeks",
+    sessions: "2× per week · 1.5 hrs",
     features: [
-      "Multiple languages or levels",
-      "Semester-by-semester continuity",
-      "Group rate locked for 2 years",
-      "Priority scheduling",
-      "Progress reports for group leaders",
-      "Custom curriculum available",
+      "Everything in the Church Partnership",
+      "33% discount ($5,995 instead of $8,995)",
+      "Rate locked for two terms",
+      "Named in marketing with testimonial",
+      "Priority onboarding and support",
+      "First access to new language tracks",
     ],
-    note: "For churches & organizations committed to a multi-term program",
+    note: "Limited to 5 founding churches — a $3,000 savings",
     popular: false,
   },
 ];
@@ -502,7 +505,7 @@ function HomePage({ navigate }) {
           <p style={{ fontSize: 16, color: "var(--ink-muted)", textAlign: "center", maxWidth: 560, margin: "0 auto 56px", lineHeight: 1.7 }}>Every enrollment includes a full ecosystem of support designed to accelerate your fluency.</p>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
             {[
-              { num: "I", title: "30 Hours of Live Immersion", desc: "Twice-weekly small-group sessions maximizing conversation, reading, and fluency — not dry lectures." },
+              { num: "I", title: "36 Hours of Live Immersion", desc: "Twice-weekly small-group sessions (90 min each) maximizing conversation, reading, and fluency — not dry lectures." },
               { num: "II", title: "Free Language Assessment", desc: "Before you start, we map your strengths, weaknesses, and learning potential with a complimentary evaluation." },
               { num: "III", title: "Personalized Study Plan", desc: "A custom roadmap tailored to your goals, with regular diagnostic tests and fluency estimates." },
               { num: "IV", title: "Weekly Office Hours", desc: "Drop-in Q&A, extra practice, and individual guidance beyond your scheduled class sessions." },
@@ -732,13 +735,13 @@ function CourseDetail({ langId, courseCode, navigate }) {
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 12 }}>
               <span style={{ fontFamily: "var(--mono)", fontSize: 12, color: "var(--accent)" }}>{course.code}</span>
-              <span style={{ fontSize: 12, color: "var(--ink-faint)" }}>{course.duration} · 1×/week · 1.5 hrs</span>
+              <span style={{ fontSize: 12, color: "var(--ink-faint)" }}>{course.duration} · 2×/week · 1.5 hrs</span>
             </div>
             <h1 style={{ fontFamily: "var(--serif)", fontSize: "clamp(28px,3.5vw,40px)", fontWeight: 400 }}>{course.name}</h1>
           </div>
           <div style={{ textAlign: "right" }}>
             <span style={{ fontFamily: "var(--serif)", fontSize: 36, fontWeight: 500 }}>${course.price}</span>
-            <span style={{ fontSize: 13, color: "var(--ink-faint)", display: "block" }}>per term · max 8 students</span>
+            <span style={{ fontSize: 13, color: "var(--ink-faint)", display: "block" }}>per term · max 8 per cohort</span>
           </div>
         </div>
       </section>
@@ -763,7 +766,7 @@ function CourseDetail({ langId, courseCode, navigate }) {
           <div style={{ position: "sticky", top: 88 }}>
             <div style={{ background: "var(--bg-alt)", borderRadius: 6, padding: "28px 24px", border: "1px solid var(--border)" }}>
               <h4 style={{ fontSize: 14, fontWeight: 600, marginBottom: 16 }}>COURSE DETAILS</h4>
-              {[["Duration",course.duration],["Sessions/week","1"],["Session length","1.5 hours"],["Max class size","8 students"],["Format","Live online (Zoom)"],["Language",lang.label],["Prerequisites",idx===0?"None":`${lang.courses[idx-1].code} or equiv.`]].map(([k,v]) => (
+              {[["Duration",course.duration],["Sessions/week","2"],["Session length","1.5 hours"],["Max class size","8 students"],["Format","Live online (Zoom)"],["Language",lang.label],["Prerequisites",idx===0?"None":`${lang.courses[idx-1].code} or equiv.`]].map(([k,v]) => (
                 <div key={k} style={{ display: "flex", justifyContent: "space-between", padding: "8px 0", borderBottom: "1px solid var(--border)" }}>
                   <span style={{ fontSize: 13, color: "var(--ink-muted)" }}>{k}</span>
                   <span style={{ fontSize: 13, fontWeight: 500 }}>{v}</span>
@@ -793,7 +796,7 @@ function SchedulePage({ navigate }) {
   const lang = languages.find(l => l.id === active);
   return (
     <div style={{ animation: "fadeIn 0.4s ease" }}>
-      <PageHead overline="Spring & Summer 2026" title="Class Schedule" subtitle="All courses meet once per week for 14 weeks via Zoom." />
+      <PageHead overline="Spring & Summer 2026" title="Class Schedule" subtitle="All courses meet twice per week for 12 weeks via Zoom." />
       <section style={{ padding: "60px 40px 120px", maxWidth: 1120, margin: "0 auto" }}>
         <div style={{ display: "flex", justifyContent: "center", marginBottom: 48 }}>
           <div style={{ display: "flex", background: "var(--card)", borderRadius: 6, padding: 4, border: "1px solid var(--border)" }}>
@@ -823,10 +826,10 @@ function SchedulePage({ navigate }) {
         ))}
         <div style={{ textAlign: "center", marginTop: 40 }}>
           <p style={{ fontSize: 14, color: "var(--ink-muted)", marginBottom: 8 }}>
-            Tutorials: $150/hr individual. <span onClick={() => navigate("tutorials")} style={{ color: "var(--accent)", fontWeight: 600, cursor: "pointer" }}>Learn more →</span>
+            Tutorials: $195/hr individual. <span onClick={() => navigate("tutorials")} style={{ color: "var(--accent)", fontWeight: 600, cursor: "pointer" }}>Learn more →</span>
           </p>
           <p style={{ fontSize: 14, color: "var(--ink-muted)" }}>
-            Group rates from $495/student. <span onClick={() => navigate("groups")} style={{ color: "var(--accent)", fontWeight: 600, cursor: "pointer" }}>Church & group packages →</span>
+            Group rates from $995/member. <span onClick={() => navigate("groups")} style={{ color: "var(--accent)", fontWeight: 600, cursor: "pointer" }}>Church & group packages →</span>
           </p>
         </div>
       </section>
@@ -893,7 +896,7 @@ function TutorialsPage({ navigate }) {
       <PageHead overline="One-on-One" title="Private Tutorials" subtitle="Personalized instruction at your pace." />
       <section style={{ padding: "80px 40px", maxWidth: 800, margin: "0 auto" }}>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24, marginBottom: 48 }}>
-          {[{ l: "Individual", p: "$150", u: "/hour", d: "One-on-one. Fully customizable." },{ l: "Paired", p: "$175", u: "/hour (total)", d: "Bring a friend. Same attention." }].map(t => (
+          {[{ l: "Individual", p: "$195", u: "/hour", d: "One-on-one. Fully customizable." },{ l: "Paired", p: "$225", u: "/hour (total)", d: "Bring a friend. Same attention." }].map(t => (
             <div key={t.l} style={{ background: "var(--card)", borderRadius: 6, padding: "36px 28px", border: "1px solid var(--border)" }}>
               <h3 style={{ fontFamily: "var(--serif)", fontSize: 20, fontWeight: 500, marginBottom: 12 }}>{t.l}</h3>
               <div style={{ marginBottom: 16 }}><span style={{ fontFamily: "var(--serif)", fontSize: 32, fontWeight: 500 }}>{t.p}</span><span style={{ fontSize: 13, color: "var(--ink-faint)" }}>{t.u}</span></div>
@@ -1017,7 +1020,8 @@ function GroupsPage({ navigate }) {
                       </>
                     ) : (
                       <>
-                        <span style={{ fontFamily: "var(--serif)", fontSize: 28, fontWeight: 500 }}>Custom</span>
+                        <span style={{ fontFamily: "var(--serif)", fontSize: 36, fontWeight: 500 }}>{pkg.flatPrice ? `$${pkg.flatPrice.toLocaleString()}` : "Custom"}</span>
+                        <span style={{ fontSize: 14, color: "var(--ink-faint)" }}>{pkg.flatPrice ? " flat" : ""}</span>
                         <p style={{ fontSize: 12, color: "var(--ink-faint)", marginTop: 4 }}>{pkg.duration} · {pkg.sessions}</p>
                       </>
                     )}
@@ -1043,7 +1047,7 @@ function GroupsPage({ navigate }) {
           </div>
           <div style={{ textAlign: "center", marginTop: 32 }}>
             <p style={{ fontSize: 14, color: "var(--ink-muted)" }}>
-              Compare: individual enrollment is $895/student for 14 weeks. Group rates save 33–45%.
+              Compare: individual enrollment is $1,495/person. Church group rate saves 33%.
             </p>
           </div>
         </div>
@@ -1200,7 +1204,7 @@ function EnrollPage({ langId, courseCode, sessionId, navigate }) {
           <div>
             <div style={{ background: "var(--card)", border: "1px solid var(--border)", borderRadius: 6, padding: 32, textAlign: "center", marginBottom: 20 }}>
               <p style={{ fontSize: 15, color: "var(--ink-light)", marginBottom: 8 }}>To enroll, contact us directly:</p>
-              <p style={{ fontSize: 15, fontWeight: 600, marginBottom: 16 }}>cole@whetstoneadvisory.com</p>
+              <p style={{ fontSize: 15, fontWeight: 600, marginBottom: 16 }}>cole@whetstoneadmissions.com</p>
               <p style={{ fontSize: 13, color: "var(--ink-faint)" }}>Mention <strong>{course.code}</strong> · {session.dates}</p>
             </div>
             <div style={{ display: "flex", gap: 12 }}>
@@ -1244,7 +1248,7 @@ function ContactPage({ navigate }) {
           ) : (
             <div>
               <p style={{ fontSize: 14, color: "rgba(255,255,255,0.7)", marginBottom: 8 }}>Email us to schedule:</p>
-              <p style={{ fontSize: 16, fontWeight: 600 }}>cole@whetstoneadvisory.com</p>
+              <p style={{ fontSize: 16, fontWeight: 600 }}>cole@whetstoneadmissions.com</p>
             </div>
           )}
         </div>
@@ -1253,11 +1257,11 @@ function ContactPage({ navigate }) {
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 48 }}>
           <div style={{ background: "var(--card)", borderRadius: 6, padding: "28px 24px", border: "1px solid var(--border)", textAlign: "center" }}>
             <h3 style={{ fontSize: 15, fontWeight: 600, marginBottom: 6 }}>Email</h3>
-            <p style={{ fontSize: 13, color: "var(--ink-muted)" }}>cole@whetstoneadvisory.com</p>
+            <p style={{ fontSize: 13, color: "var(--ink-muted)" }}>cole@whetstoneadmissions.com</p>
           </div>
           <div style={{ background: "var(--card)", borderRadius: 6, padding: "28px 24px", border: "1px solid var(--border)", textAlign: "center" }}>
             <h3 style={{ fontSize: 15, fontWeight: 600, marginBottom: 6 }}>Phone</h3>
-            <p style={{ fontSize: 13, color: "var(--ink-muted)" }}>917-562-5668</p>
+            <p style={{ fontSize: 13, color: "var(--ink-muted)" }}>919-599-4565</p>
           </div>
         </div>
 
